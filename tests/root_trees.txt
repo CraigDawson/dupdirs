@@ -1,0 +1,53 @@
+.
+├── root1
+│   ├── empty
+│   ├── test
+│   │   ├── abc
+│   │   ├── abcde
+│   │   ├── empty
+│   │   └── test2
+│   │       ├── abc
+│   │       ├── abcd
+│   │       └── abcde
+│   ├── test2
+│   │   ├── abcd
+│   │   ├── abcde
+│   │   └── test2
+│   │       ├── abc
+│   │       ├── abcd
+│   │       └── abcde
+│   └── test3
+│       └── foo
+├── root2
+│   ├── empty
+│   ├── test2
+│   │   ├── abcd
+│   │   ├── abcde
+│   │   └── test2
+│   │       ├── abc
+│   │       ├── abcd
+│   │       └── abcde
+│   └── test3
+│       └── foo
+├── root3
+│   ├── empty
+│   ├── test
+│   │   ├── abc
+│   │   ├── abcde
+│   │   ├── empty
+│   │   └── test2
+│   │       ├── abc
+│   │       ├── abcd
+│   │       └── abcde
+│   ├── test2
+│   │   ├── abcd
+│   │   ├── abcde
+│   │   └── test2
+│   │       ├── abc
+│   │       ├── abcd
+│   │       └── abcde
+│   └── test3
+│       └── foo
+└── root_trees.txt
+
+21 directories, 29 files
