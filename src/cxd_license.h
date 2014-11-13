@@ -1,5 +1,4 @@
-#ifndef CXD_LICENSE_H
-#define CXD_LICENSE_H
+#pragma once
 
 /*
  *
@@ -27,4 +26,3 @@
  *
  */
 
-#endif // CXD_LICENSE_H

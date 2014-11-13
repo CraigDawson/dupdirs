@@ -24,7 +24,7 @@ std::string formatWithCommas(T value)
 }
 
 /// SMall Timer Class Namespace
-namespace SMT 
+namespace SMT
 {
     using Clock = std::chrono::high_resolution_clock;
     using Us    = std::chrono::microseconds;

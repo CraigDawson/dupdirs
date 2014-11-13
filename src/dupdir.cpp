@@ -17,8 +17,8 @@
 int32_t     Depth::depth  {0};
 pair_vector roots;
 
-const string DELIM {"|"}; // For Testing
-//const string DELIM {"\003"};   // TODO: ETX char ??
+const std::string DELIM {"|"}; // For Testing
+//const std::string DELIM {"\003"};   // TODO: ETX char ??
 
 //
 // Original num_str_comp() idea from:
@@ -30,39 +30,39 @@ bool num_pair_comp(const str_int_pair& p1, const str_int_pair& p2)
     return num_str_comp(p1.first, p2.first);
 }
 
-bool num_str_comp(const string& s1, const string& s2)
+bool num_str_comp(const std::string& s1, const std::string& s2)
 {
     if (s1.empty() || s2.empty()) return false;
 
-    string::const_iterator it1 = s1.begin(), it2 = s2.begin();
+    std::string::const_iterator it1 = s1.begin(), it2 = s2.begin();
 
     auto found = s1.find(roots[0].first);
     auto p1l = roots[0].first.length();
-    if (found == string::npos)
+    if (found == std::string::npos)
     {
         found = s1.find(roots[1].first);
         p1l = roots[1].first.length();
-        if (found == string::npos)
+        if (found == std::string::npos)
         {
             it1 = s1.begin(), it2 = s2.begin();
             return lexicographical_compare(it1, s1.end(), it2, s2.end());
         }
     }
-    string p1 = s1.substr(found + p1l);
+    std::string p1 = s1.substr(found + p1l);
 
     found = s2.find(roots[0].first);
     auto p2l = roots[0].first.length();
-    if (found == string::npos)
+    if (found == std::string::npos)
     {
         found = s2.find(roots[1].first);
         p2l = roots[1].first.length();
-        if (found == string::npos)
+        if (found == std::string::npos)
         {
             it1 = s1.begin(), it2 = s2.begin();
             return lexicographical_compare(it1, s1.end(), it2, s2.end());
         }
     }
-    string p2 = s2.substr(found + p2l);
+    std::string p2 = s2.substr(found + p2l);
 
     return lexicographical_compare(p1.begin(), p1.end(), p2.begin(), p2.end());
 }
@@ -74,14 +74,14 @@ bool num_str_comp(const string& s1, const string& s2)
 
 /// retuns empty string for root not in path
 /// and root == path
-string DupDir::pathLessRoot(const string& root,
-                            const string& path)
+std::string DupDir::pathLessRoot(const std::string& root,
+                            const std::string& path)
 {
     auto rootLen = root.length();
-    string rtnPathLessRoot;
+    std::string rtnPathLessRoot;
 
     auto found = path.find(root);
-    if (found != string::npos)
+    if (found != std::string::npos)
     {
         rtnPathLessRoot = path.substr(found + rootLen);
     }
@@ -93,7 +93,7 @@ string DupDir::pathLessRoot(const string& root,
     return rtnPathLessRoot;
 }
 
-void DupDir::getListOfDirs(const string& dirname)
+void DupDir::getListOfDirs(const std::string& dirname)
 {
     if (rootNum == -1)
         startTimer();  // time whole run
@@ -101,7 +101,7 @@ void DupDir::getListOfDirs(const string& dirname)
     display->status("PASS 1: " + dirname);
 
     ++rootNum;
-    roots.push_back(make_pair(dirname, 0));
+    roots.push_back(std::make_pair(dirname, 0));
     FILE_LOG << "root dir: [" << rootNum << "]  " << dirname;
 
     getListOfDirsWalker(dirname);
@@ -113,11 +113,11 @@ void DupDir::buildHashList()
 
     for (it = dirList.begin(); it != dirList.end(); ++it)
     {
-        string dirSum;
+        std::string dirSum;
 
         if (getSingleDirHash((*it).first, dirSum))
         {
-            dirsHashList.push_back(make_pair(dirSum, (*it).second));
+            dirsHashList.push_back(std::make_pair(dirSum, (*it).second));
         }
         else
         {
@@ -125,7 +125,7 @@ void DupDir::buildHashList()
             << (*it).second << "]  "
             << (*it).first;
 
-            dirsHashList.push_back(make_pair(dirSum, (*it).second));
+            dirsHashList.push_back(std::make_pair(dirSum, (*it).second));
 
             ++emptyDirs;
         }
@@ -133,14 +133,14 @@ void DupDir::buildHashList()
 }
 
 inline
-bool DupDir::getSingleDirHash(string& dirname, string& dirSum)
+bool DupDir::getSingleDirHash(std::string& dirname, std::string& dirSum)
 {
     display->status("PASS 2: " + dirname);
 
     return getDirHashWalker(dirname, dirSum);
 }
 
-pair<int, int> DupDir::compSums()
+std::pair<int, int> DupDir::compSums()
 {
     dirsHashList.sort(num_pair_comp);
 
@@ -155,10 +155,10 @@ pair<int, int> DupDir::compSums()
 }
 
 /// modified internet example (stackoverflow)
-vector<string>
-DupDir::split(const string& s, const string& delim, const bool keep_empty)
+std::vector<std::string>
+DupDir::split(const std::string& s, const std::string& delim, const bool keep_empty)
 {
-    vector<string> result;
+    std::vector<std::string> result;
 
     if (delim.empty())
     {
@@ -166,11 +166,11 @@ DupDir::split(const string& s, const string& delim, const bool keep_empty)
         return result;
     }
 
-    string::const_iterator substart = s.begin(), subend;
+    std::string::const_iterator substart = s.begin(), subend;
     while (true)
     {
         subend = search(substart, s.end(), delim.begin(), delim.end());
-        string temp(substart, subend);
+        std::string temp(substart, subend);
         if (keep_empty || !temp.empty())
         {
             result.push_back(temp);
@@ -185,10 +185,10 @@ DupDir::split(const string& s, const string& delim, const bool keep_empty)
     return result;
 }
 
-pair<int, int> DupDir::checkRepeats()
+std::pair<int, int> DupDir::checkRepeats()
 {
     pair_list::iterator     it;
-    vector<string>          lastV;
+    std::vector<std::string>          lastV;
     int                     lastRoot    = -1;
     bool                    first       = true;
     int                     dirs        = 0;
@@ -202,7 +202,7 @@ pair<int, int> DupDir::checkRepeats()
 
     for (it = dirsHashList.begin(); it != dirsHashList.end(); ++it)
     {
-        const vector<string> v = split((*it).first, DELIM);
+        const std::vector<std::string> v = split((*it).first, DELIM);
 
         if (first)          // first time thru there are no valid last* values
         {
@@ -283,7 +283,7 @@ pair<int, int> DupDir::checkRepeats()
         FILE_LOG << "Directories in root: " << root.first << " " << root.second;
 
     stopTimer("Time for this run");
-    return make_pair(dups, dirs);
+    return std::make_pair(dups, dirs);
 }
 
 bool DupDir::getListOfDirsStep(FTSENT* node)
@@ -294,7 +294,7 @@ bool DupDir::getListOfDirsStep(FTSENT* node)
 
     if (node->fts_info & FTS_D)
     {
-        dirList.push_back(make_pair(string(node->fts_path), rootNum));
+        dirList.push_back(std::make_pair(std::string(node->fts_path), rootNum));
         ++roots[rootNum].second;
     }
 
@@ -303,7 +303,7 @@ bool DupDir::getListOfDirsStep(FTSENT* node)
     return true;
 }
 
-void DupDir::getListOfDirsWalker(const string& p)
+void DupDir::getListOfDirsWalker(const std::string& p)
 {
     std::function<bool(FTSENT*)> s = [=](FTSENT* node) -> bool
     {
@@ -317,18 +317,18 @@ void DupDir::getListOfDirsWalker(const string& p)
 
 bool DupDir::getDirHashStep(FTSENT* node)
 {
-    string filename = node->fts_name;
+    std::string filename = node->fts_name;
 
     if ( ((node->fts_info & FTS_F)
             || (node->fts_info & FTS_D))
             && (node->fts_level == 1) )
     {
-        string entry;
+        std::string entry;
 
 #ifdef FASTER_LESS_ACCURATE_METHOD
         // TODO: retest this
         //FileStat fs(dirname + "/" + filename);
-        stringstream ss;
+        std::stringstream ss;
         ss << node->fts_statp->st_size << DELIM << filename;
         entry = ss.str();
 
@@ -338,16 +338,16 @@ bool DupDir::getDirHashStep(FTSENT* node)
         {
             hashwrapper *hw1 = new sha256wrapper();
             hw1->test();
-            string sha256 = hw1->getHashFromFile(node->fts_path);
+            std::string sha256 = hw1->getHashFromFile(node->fts_path);
             entry = sha256 + DELIM + filename;
             delete hw1;
         }
         catch (hlException& e)
         {
-            cerr << "hlerror: #"
+            std::cerr << "hlerror: #"
                 << int(e.error_number())
                 << " " << e.error_message()
-                << endl;
+                << std::endl;
         }
 #endif
         // for both
@@ -360,7 +360,7 @@ bool DupDir::getDirHashStep(FTSENT* node)
     return true;
 }
 
-bool DupDir::getDirHashWalker(const string& p, string& dirSum)
+bool DupDir::getDirHashWalker(const std::string& p, std::string& dirSum)
 {
     std::function<bool(FTSENT*)> s = [=](FTSENT* node) -> bool
     {
@@ -385,7 +385,7 @@ bool DupDir::getDirHashWalker(const string& p, string& dirSum)
 
     // sum file list
     HashWrapper hw;
-    string sha256 = hw.getHash(entryList);
+    std::string sha256 = hw.getHash(entryList);
     dirSum = sha256 + DELIM + p;
 
     return true;

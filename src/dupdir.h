@@ -8,34 +8,18 @@
 
 #include "cxd_license.h"   // See for licensing information
 
-#include <iostream>
-#include <sstream>
 #include <string>
-#include <list>
-#include <vector>
-#include <iterator>
-#include <algorithm>
-#include <dirent.h>
-#include <functional>
 #include <utility>
-#include <cstdlib>
-#include <chrono>
-#include <ctime>
-
-#include <sys/stat.h>
-#include <sys/types.h>
-
 #include <hashlibpp.h>
-
+#include <sys/stat.h>
 #include "log.h"
 #include <smtimer.h>
-#include "dd_types.h"
 #include "fts_wrapper.h"
 
 extern pair_vector roots;
 
 bool num_pair_comp(const str_int_pair& p1, const str_int_pair& p2);
-bool num_str_comp(const string& s1, const string& s2);
+bool num_str_comp(const std::string& s1, const std::string& s2);
 
 /// Depth class is used to determine depth of roots
 class Depth
@@ -61,7 +45,7 @@ class FileStat
         FileStat() {}
         ~FileStat() {}
 
-        FileStat(const string& file) { stat(file.c_str(), &info); }
+        FileStat(const std::string& file) { stat(file.c_str(), &info); }
 
         int size() { return info.st_size; }
 
@@ -81,7 +65,7 @@ class HashWrapper
         {
             delete hw;
         }
-        string getHash(const string_list& sl)
+        std::string getHash(const string_list& sl)
         {
             return hw->getHashFromListOfStrings(sl);
         }
@@ -100,11 +84,11 @@ public:
 
     ~DupDir() { roots.erase(roots.begin(), roots.end()); }
 
-    void getListOfDirs(const string& dirname);  // TODO:Add 2nd arg to count dirs in each root??
+    void getListOfDirs(const std::string& dirname);  // TODO:Add 2nd arg to count dirs in each root??
 
     void buildHashList();
 
-    pair<int, int> compSums();
+    std::pair<int, int> compSums();
 
 private:
     /// private member variables ---
@@ -120,25 +104,25 @@ private:
     Depth d;
 
     /// private member functions ---
-    string pathLessRoot(const string& root, const string& path);
+    std::string pathLessRoot(const std::string& root, const std::string& path);
 
-    bool getSingleDirHash(string& dirname, string& dirSum);
+    bool getSingleDirHash(std::string& dirname, std::string& dirSum);
 
-    vector<string>
-    split(const string& s,
-          const string& delim,
+    std::vector<std::string>
+    split(const std::string& s,
+          const std::string& delim,
           const bool keep_empty = true);
 
-    pair<int, int> checkRepeats();
+    std::pair<int, int> checkRepeats();
 
     FileTraversalSystem fts;
 
     /// FTS support functions (see fts_wrapper.h) ---
     bool getListOfDirsStep(FTSENT* node);
-    void getListOfDirsWalker(const string& p);
+    void getListOfDirsWalker(const std::string& p);
 
     bool getDirHashStep(FTSENT* node);
-    bool getDirHashWalker(const string& p, string& dirSum);
+    bool getDirHashWalker(const std::string& p, std::string& dirSum);
 
     /// Timer & supporting functions ---
     SmTimer st;
@@ -150,10 +134,10 @@ private:
     }
 
     inline
-    void stopTimer(const string& str)
+    void stopTimer(const std::string& str)
     {
         st.stop();
-        string so { st.timeUsStr(str + ": ") };
+        std::string so { st.timeUsStr(str + ": ") };
         FILE_LOG << so;
         display->outLine(so);
     }

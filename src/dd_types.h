@@ -8,10 +8,14 @@
 #pragma once
 #include "cxd_license.h"
 
-using namespace std;
+#include <list>
+#include <vector>
+#include <string>
+#include <utility>
+#include <cstdint>
 
-using string_list  = list<string>;
-using str_int_pair = pair<string, int>;
-using pair_list    = list<str_int_pair>;
-using pair_vector  = vector< pair<string, uint32_t> >;
+using string_list  = std::list<std::string>;
+using str_int_pair = std::pair<std::string, int>;
+using pair_list    = std::list<str_int_pair>;
+using pair_vector  = std::vector<std::pair<std::string, uint32_t>>;
 

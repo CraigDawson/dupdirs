@@ -6,26 +6,15 @@
 // MODIFIED: 2014-10-16 16:09:20
 
 #pragma once
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fts.h>
-#include <cerrno>
-#include <cstring>
-#include <iomanip>
-
-#include <string>
-#include <system_error>
-#include <functional>
-#include <typeinfo>
-
-#include <cstdio>
-#include <climits>
-#include <cstdlib>
-
-#include "quote_iomanip.h"
 #include "cxd_license.h"
 
-using namespace std;
+#include "log.h"
+#include "quote_iomanip.h"
+#include <fts.h>
+#include <functional>
+#include <ostream>
+#include <system_error>
+#include <cstring>
 
 class FileTraversalSystem
 {
@@ -98,7 +87,7 @@ class FileTraversalSystem
 
         FTS* getTree() { return tree; }
 
-        ostream& ftsDump(ostream& out) const
+        std::ostream& ftsDump(std::ostream& out) const
         {
             FTSENT* ent  = fts_children(tree, 0);
             out << "fts_info =\t"     << ent->fts_info << "\n"
@@ -109,7 +98,7 @@ class FileTraversalSystem
                 << "fts_namelen =\t"  << ent->fts_namelen << "\n"
                 << "fts_level =\t"    << ent->fts_level << "\n"
                 << "fts_errno =\t"    << ent->fts_errno << "\n"
-                << "fts_number =\t"   << ent->fts_number << endl;
+                << "fts_number =\t"   << ent->fts_number << std::endl;
 
             return out;
         }
@@ -126,7 +115,7 @@ class FileTraversalSystem
                 << "fts_namelen =\t"  << ent->fts_namelen << "\n"
                 << "fts_level =\t"    << ent->fts_level << "\n"
                 << "fts_errno =\t"    << ent->fts_errno << "\n"
-                << "fts_number =\t"   << ent->fts_number << endl;
+                << "fts_number =\t"   << ent->fts_number << std::endl;
        }
 
     private:
