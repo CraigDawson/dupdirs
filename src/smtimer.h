@@ -1,9 +1,11 @@
-// C/C++ File
-// AUTHOR:   cxd
-// FILE:     smTimer.h
-// ROLE:     Small Timer Class for Debugging el al.  (C++11)
-// CREATED:  2014-07-20 16:38:51
-// MODIFIED: 2014-07-23 10:48:45
+/* @file smtimer.h
+ *
+ * @brief Small Timer Class for Debugging, etc. (C++11)
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-07-20
+ *
+ */
 
 #pragma once
 #include "cxd_license.h"

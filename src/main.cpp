@@ -1,7 +1,17 @@
+/* @file main.cpp
+ *
+ * @brief C++ Main
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-11-14
+ *
+ */
+
+#include "cxd_license.h"
+
 #include "mainwindow.h"
 #include <QApplication>
 #include <iostream>
-#include "cxd_license.h"
 
 int main(int argc, char *argv[])
 {

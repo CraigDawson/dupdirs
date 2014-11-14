@@ -1,9 +1,11 @@
-// C/C++ File
-// AUTHOR:   cxd
-// FILE:     dupdir.cpp
-// ROLE:     code for DupDir class
-// CREATED:  2014-08-04 15:38:30
-// MODIFIED: 2014-10-16 18:08:58
+/* @file dupdir.cpp
+ *
+ * @brief Main C++ file for project
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-08-04
+ *
+ */
 
 #include "cxd_license.h"
 

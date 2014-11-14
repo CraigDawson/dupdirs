@@ -1,5 +1,13 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+/* @file mainwindow.h
+ *
+ * @brief Qt main window header
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-11-14
+ *
+ */
+
+#pragma once
 
 #include "cxd_license.h"
 
@@ -52,4 +60,3 @@ private:
     Ui::MainWindow *ui;
 };
 
-#endif // MAINWINDOW_H

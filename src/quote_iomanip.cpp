@@ -1,3 +1,12 @@
+/* @file quote_iomanip.cpp
+ *
+ * @brief Quote iomanip
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-11-14
+ *
+ */
+
 #include "quote_iomanip.h"
 
 // When you pass an object of type Quote to an ostream it returns
@@ -8,6 +17,4 @@ Quote::Quoter operator<<(std::ostream& str,Quote const& quote)
 {
     return Quote::Quoter(quote,str);
 }
-
-
 

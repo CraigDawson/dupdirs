@@ -1,8 +1,11 @@
-// C/C++ File
-// AUTHOR:   cxd
-// FILE:     dupdir.h
-// CREATED:  2014-07-07 14:14:30
-// MODIFIED: 2014-07-07 14:26:48
+/* @file dupdir.h
+ *
+ * @brief Main H file for project
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-07-07
+ *
+ */
 
 #pragma once
 

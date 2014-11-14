@@ -1,9 +1,11 @@
-// C/C++ File
-// AUTHOR:   cxd1
-// FILE:     dd_types.h
-// ROLE:     Types for DupDir
-// CREATED:  2014-08-25 22:13:39
-// MODIFIED: 2014-09-08 17:35:11
+/* @file dd_types.h
+ *
+ * @brief Types for DupDir
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-08-25
+ *
+ */
 
 #pragma once
 #include "cxd_license.h"

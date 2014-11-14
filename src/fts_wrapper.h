@@ -1,9 +1,11 @@
-// C/C++ File
-// AUTHOR:   cxd
-// FILE:     fts_wrapper.h
-// ROLE:     Wrapper class for FTS as needed (i.e. not general purpose)
-// CREATED:  2014-09-22 17:08:36
-// MODIFIED: 2014-10-16 16:09:20
+/* @file fts_wrapper.h
+ *
+ * @brief Wrapper class for FTS (partial)
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-09-22
+ *
+ */
 
 #pragma once
 #include "cxd_license.h"

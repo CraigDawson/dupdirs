@@ -1,3 +1,14 @@
+/* @file mainwindow.cpp
+ *
+ * @brief Qt main window procedures
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-11-14
+ *
+ */
+
+#include "cxd_license.h"
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
@@ -6,7 +17,6 @@
 #include <QFileDialog>
 #include <QScrollBar>
 #include "dupdir.h"
-#include "cxd_license.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :

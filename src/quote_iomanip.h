@@ -1,6 +1,15 @@
-// From http://stackoverflow.com/questions/535444/custom-manipulator-for-c-iostream
-// Note: There is a quoted() iomanip in C++14
-//
+/* @file quote_iomanip.h
+ *
+ * @brief Quote iomanip
+ *
+ * From http://stackoverflow.com/questions/535444/custom-manipulator-for-c-iostream
+ * Note: There is a quoted() iomanip in C++14
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-11-14
+ *
+ */
+
 #pragma once
 #include <iostream>
 #include <iomanip>

@@ -1,4 +1,11 @@
-/// Light weight log mechanism
+/* @file log.h
+ *
+ * @brief Light weight log mechanism
+ *
+ * @author Craig Dawson <Craig.Dawson@gmail.com>
+ * @date 2014-11-14
+ *
+ */
 
 #pragma once
 
