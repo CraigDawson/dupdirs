@@ -44,17 +44,13 @@ public:
 private slots:
     void on_actionAbout_triggered();
 
-    void on_actionFind_triggered();
-
-    void on_pushButton_3_clicked();
-
     void on_toolButton_clicked();
 
     void on_toolButton_2_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_pushButton_Exit_clicked();
 
-    void on_pushButton_clicked();
+    void on_pushButton_Go_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -37,17 +37,12 @@ void MainWindow::on_actionAbout_triggered()
     QMessageBox::about(this, tr("About"), tr("DupDirs V1.0\nQuickly checks if two paths (roots) are the same.\nSee README.pdf for details and license information."));
 }
 
-void MainWindow::on_actionFind_triggered()
-{
-    QMessageBox::about(this, tr("Find"), tr("Find"));
-}
-
 void MainWindow::createStatusBar()
 {
    statusBar()->showMessage(tr("Ready"));
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_pushButton_Exit_clicked()
 {
     close();
 }
@@ -86,7 +81,7 @@ void MainWindow::on_toolButton_2_clicked()
 }
 
 /// Go button routine
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pushButton_Go_clicked()
 {
     status("Go");
     FILE_LOG << "Go -----------------------------------------------";
@@ -112,11 +107,6 @@ void MainWindow::on_pushButton_2_clicked()
     ui->textBrowser->verticalScrollBar()->setValue(ui->textBrowser->verticalScrollBar()->maximum());
 
     status("Completed.");
-}
-
-void MainWindow::on_pushButton_clicked()
-{
-    status("TODO");  // TODO
 }
 
 void MainWindow::status(const std::string& s)

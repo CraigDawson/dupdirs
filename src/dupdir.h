@@ -21,9 +21,6 @@
 
 extern pair_vector roots;
 
-bool num_pair_comp(const str_int_pair& p1, const str_int_pair& p2);
-bool num_str_comp(const std::string& s1, const std::string& s2);
-
 /// Depth class is used to determine depth of roots
 class Depth
 {

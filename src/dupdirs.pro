@@ -17,7 +17,8 @@ SOURCES += main.cpp\
         mainwindow.cpp \
         dupdir.cpp \
         quote_iomanip.cpp \
-        fts_wrapper.cpp
+        fts_wrapper.cpp \
+        num_comp.cpp
 
 HEADERS  += mainwindow.h \
     ../hashlib2plus/trunk/src/hashlibpp.h \
@@ -26,7 +27,8 @@ HEADERS  += mainwindow.h \
     smtimer.h \
     cxd_license.h \
     fts_wrapper.h \
-    quote_iomanip.h
+    quote_iomanip.h \
+    num_comp.h
 
 FORMS    += mainwindow.ui
 

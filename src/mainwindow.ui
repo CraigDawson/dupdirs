@@ -51,14 +51,14 @@
     <item row="6" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="pushButton_Go">
         <property name="text">
          <string>GO</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="pushButton_Exit">
         <property name="text">
          <string>Exit</string>
         </property>
@@ -81,7 +81,7 @@
      <x>0</x>
      <y>0</y>
      <width>859</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -130,11 +130,6 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
-   </property>
-  </action>
-  <action name="actionFind">
-   <property name="text">
-    <string>Find</string>
    </property>
   </action>
  </widget>
